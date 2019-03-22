@@ -10,6 +10,8 @@ import { AboutComponent } from './about/about.component'
 import { RestaurantesComponent } from './restaurantes/restaurantes.component';
 import { RestauranteComponent } from './restaurantes/restaurante/restaurante.component';
 
+import { RestaurantesService } from './restaurantes/restaurantes.service';
+
 import { APP_ROUTERS } from './app.routing';
 
 
@@ -27,7 +29,7 @@ import { APP_ROUTERS } from './app.routing';
     HttpModule,
     RouterModule.forRoot(APP_ROUTERS)
   ],
-  providers: [],
+  providers: [RestaurantesService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
