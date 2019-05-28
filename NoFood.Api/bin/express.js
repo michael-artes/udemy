@@ -16,7 +16,7 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
 //configuracao conexao com banco de dados
-mongoose.connect(variables.connect);
+mongoose.connect(variables.Database.connection);
 
 app.use('/api/categoria', routerCategoria);
 app.use('/api/produto', routerProduto);
