@@ -1,12 +1,12 @@
-require('../models/categoria-model');
+require('../models/produto-model');
 const base = require('../bin/base/repository-base');
 
-class categoriaRepository {
+class produtoRepository {
 
     constructor() {
-        this._base = new base('Categoria');
+        this._base = new base('Produto');
     }
-
+    
     async create(data) {
         return await this._base.create(data);
     }
@@ -29,4 +29,4 @@ class categoriaRepository {
 
 }
 
-module.exports = categoriaRepository;
+module.exports = produtoRepository;

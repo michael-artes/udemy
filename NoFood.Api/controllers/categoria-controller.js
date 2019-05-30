@@ -1,11 +1,9 @@
 'use strict'
-
-require('../modules/categoria-model');
-const mongoose = require('mongoose');
-const categoria = mongoose.model('Categoria');
+require('../models/categoria-model');
 const repository = require('../repositories/categoria-repository');
 
-function categoriaController(){
+function categoriaController() {
+
 }
 
 categoriaController.prototype.post = async (req, res) => {
@@ -24,8 +22,8 @@ categoriaController.prototype.get = async (req, res) => {
 };
 
 categoriaController.prototype.getById = async (req, res) => {
-    let categoriaEncontrada = await new repository().getById(req.params.id);
-    res.status(200).send(categoriaEncontrada);
+    let categoria = await new repository().getById(req.params.id);
+    res.status(200).send(categoria);
 };
 
 categoriaController.prototype.delete = async (req, res) => {
