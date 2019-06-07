@@ -16,7 +16,7 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 
 //Configurando a conexão com banco de dados
-mongoose.connect(variables.Database.connection);
+mongoose.connect(variables.Database.connection, { useNewUrlParser: true });
 
 //Configurando as rotas
 app.use('/api/categoria', categoriaRouter);
@@ -26,3 +26,6 @@ app.use('/api/usuario', usuarioRouter);
 
 //Exportando nossa Api
 module.exports = app;
+
+
+// Api -> MIDDLEWARES -> Rotas -> Controller -> Repository -> Banco
