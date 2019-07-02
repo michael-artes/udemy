@@ -13,6 +13,11 @@ import { RestauranteComponent } from './restaurantes/restaurante/restaurante.com
 import { RestaurantesService } from './restaurantes/restaurantes.service';
 
 import { APP_ROUTERS } from './app.routing';
+import { RestaurantDetailComponent } from './restaurant-detail/restaurant-detail.component';
+import { MenuComponent } from './restaurant-detail/menu/menu.component';
+import { ShoppingCardComponent } from './restaurant-detail/shopping-card/shopping-card.component';
+import { MenuItemComponent } from './restaurant-detail/menu-item/menu-item.component';
+import { ReviewsComponent } from './restaurant-detail/reviews/reviews.component';
 
 
 @NgModule({
@@ -22,7 +27,12 @@ import { APP_ROUTERS } from './app.routing';
     HomeComponent,
     AboutComponent,
     RestaurantesComponent,
-    RestauranteComponent
+    RestauranteComponent,
+    RestaurantDetailComponent,
+    MenuComponent,
+    ShoppingCardComponent,
+    MenuItemComponent,
+    ReviewsComponent
   ],
   imports: [
     BrowserModule,
