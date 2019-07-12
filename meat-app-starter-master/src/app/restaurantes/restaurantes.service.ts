@@ -1,3 +1,4 @@
+import { IMenuItem } from './../restaurant-detail/menu-item/menu-item.model';
 import { Injectable } from '@angular/core';
 import { Http } from '@angular/http';
 import { Observable } from 'rxjs';
@@ -35,5 +36,11 @@ export class RestaurantesService {
       .map(response => response.json())
       .catch(ErrorHandler.handlerError);
   }
+
+  menuOfRestaurante(id: string): Observable<IMenuItem[]> {
+    return this.http.get(`${MEAT_API}/restaurants/${id}/menu`)
+      .map(response => response.json())
+      .catch(ErrorHandler.handlerError);
+  }  
 
 }
