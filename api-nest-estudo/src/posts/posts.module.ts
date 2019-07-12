@@ -1,13 +1,16 @@
-import { MongooseModule } from '@nestjs/mongoose';
 import { Module } from '@nestjs/common';
-
-import { PostSchema } from './post.schema';
 import { PostsController } from './posts.controller';
 import { PostsService } from './posts.service';
+import { MongooseModule } from '@nestjs/mongoose';
+import { PostSchema } from './post.schema';
+import { PassportModule } from '@nestjs/passport';
 
 @Module({
-  imports: [MongooseModule.forFeature([{ name: 'Post', schema: PostSchema }])],
+  imports: [
+    PassportModule.register({ defaultStrategy: 'jwt' }),
+    MongooseModule.forFeature([{ name: 'Post', schema: PostSchema }]),
+  ],
   controllers: [PostsController],
-  providers: [PostsService]
+  providers: [PostsService],
 })
 export class PostsModule {}

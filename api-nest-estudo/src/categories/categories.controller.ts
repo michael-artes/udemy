@@ -1,32 +1,41 @@
+import {
+  Controller,
+  Get,
+  Post,
+  Delete,
+  Put,
+  Body,
+  Param,
+  UseGuards,
+} from '@nestjs/common';
 import { CategoriesService } from './categories.service';
-import { Controller, Get, Post, Put, Delete, Body, Param } from '@nestjs/common';
-import { ICategory } from './categories.interface';
+import { ICategory } from './category.inteface';
+import { AuthGuard } from '@nestjs/passport';
 
 @Controller('categories')
 export class CategoriesController {
+  constructor(private readonly categoriesService: CategoriesService) {}
 
-    constructor(private readonly categoryService: CategoriesService)
-    {}
+  @Get()
+  async index() {
+    return await this.categoriesService.findAll();
+  }
 
-    @Get()
-    async index(){
-        return await this.categoryService.findAll();
-    }
+  @Post()
+  @UseGuards(AuthGuard())
+  async create(@Body() category: ICategory) {
+    return await this.categoriesService.create(category);
+  }
 
-    @Post()
-    async create(@Body() category: ICategory){
-        return await this.categoryService.create(category);
-    }
+  @Put()
+  @UseGuards(AuthGuard())
+  async update(@Body() category: ICategory) {
+    return await this.categoriesService.update(category);
+  }
 
-    @Put()
-    async update(@Body() category: ICategory){
-        console.log('atualizando categoria',category);
-        return await this.categoryService.update(category);
-    }
-
-    @Delete(':id')
-    async delete(@Param() params){
-        console.log('deletando id - ', params.id);
-        return await this.categoryService.delete(params.id);
-    }
+  @Delete(':id')
+  @UseGuards(AuthGuard())
+  async delete(@Param() params) {
+    return await this.categoriesService.delete(params.id);
+  }
 }
