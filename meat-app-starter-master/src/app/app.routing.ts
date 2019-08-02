@@ -1,11 +1,12 @@
 import { Routes } from '@angular/router';
-
-import { HomeComponent } from './home/home.component';
 import { AboutComponent } from './about/about.component';
-import { RestaurantesComponent } from './restaurantes/restaurantes.component';
+import { HomeComponent } from './home/home.component';
+import { OrderComponent } from './order/order.component';
+import { MenuComponent } from './restaurant-detail/menu/menu.component';
 import { RestaurantDetailComponent } from './restaurant-detail/restaurant-detail.component';
 import { ReviewsComponent } from './restaurant-detail/reviews/reviews.component';
-import { MenuComponent } from './restaurant-detail/menu/menu.component';
+import { RestaurantesComponent } from './restaurantes/restaurantes.component';
+
 
 export const APP_ROUTERS: Routes = [
     { path: '', component: HomeComponent },
@@ -17,5 +18,6 @@ export const APP_ROUTERS: Routes = [
             { path: 'reviews', component: ReviewsComponent}
         ]
     },
+    { path: 'order', component: OrderComponent },
     { path: 'about', component: AboutComponent }
 ];
