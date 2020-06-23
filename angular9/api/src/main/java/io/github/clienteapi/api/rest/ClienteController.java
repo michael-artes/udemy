@@ -36,7 +36,7 @@ public class ClienteController {
 	public Cliente findById( @PathVariable Integer id ) {
 		return clienteRepository
 					.findById(id)
-					.orElseThrow( () -> new ResponseStatusException(HttpStatus.NOT_FOUND) );
+					.orElseThrow( () -> new ResponseStatusException(HttpStatus.NOT_FOUND, "Cliente não econtrado!") );
 	}
 	
 	@GetMapping
