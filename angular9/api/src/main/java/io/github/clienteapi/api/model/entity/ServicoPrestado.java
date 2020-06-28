@@ -1,6 +1,7 @@
 package io.github.clienteapi.api.model.entity;
 
 import java.math.BigDecimal;
+import java.time.LocalDate;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -10,8 +11,10 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
+
 @Entity
-public class Servico {
+public class ServicoPrestado {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -26,6 +29,10 @@ public class Servico {
 
 	@Column
 	private BigDecimal valor;
+	
+	@Column
+	@JsonFormat(pattern = "dd/MM/yyyy")
+	private LocalDate data;
 	
 
 	public Integer getId() {
@@ -59,6 +66,15 @@ public class Servico {
 	public void setValor(BigDecimal valor) {
 		this.valor = valor;
 	}
+	
+
+	public LocalDate getData() {
+		return data;
+	}
+
+	public void setData(LocalDate data) {
+		this.data = data;
+	}
 
 	@Override
 	public String toString() {
@@ -84,7 +100,7 @@ public class Servico {
 			return false;
 		if (getClass() != obj.getClass())
 			return false;
-		Servico other = (Servico) obj;
+		ServicoPrestado other = (ServicoPrestado) obj;
 		if (cliente == null) {
 			if (other.cliente != null)
 				return false;
