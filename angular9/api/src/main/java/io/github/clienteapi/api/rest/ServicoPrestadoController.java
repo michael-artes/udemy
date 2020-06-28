@@ -8,7 +8,6 @@ import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
-import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -22,7 +21,6 @@ import io.github.clienteapi.api.model.repository.ServicoPrestadoRepository;
 import io.github.clienteapi.api.util.MoneyUtil;
 
 @RestController
-@CrossOrigin("http://localhost:4200")
 @RequestMapping("/api/servicos-prestados")
 public class ServicoPrestadoController extends GenericController<ServicoPrestado, ServicoPrestadoDTO> {
 
@@ -52,7 +50,7 @@ public class ServicoPrestadoController extends GenericController<ServicoPrestado
 		ServicoPrestado servico = new ServicoPrestado();
 		servico.setDescricao(formRequest.getDescricao());
 		servico.setData( LocalDate.parse(formRequest.getData(), DateTimeFormatter.ofPattern("dd/MM/yyyy")) );
-		servico.setValor( moneyUtil.convertToDouble(formRequest.getPreco()) );
+		servico.setValor( moneyUtil.convertToDouble(formRequest.getValor()) );
 		
 		servico.setCliente( clienteRepository.findById(formRequest.getIdCliente()).orElseThrow( () -> new ResponseStatusException(HttpStatus.NOT_FOUND, "cliente não econtrado!" + this.toString()) ) );
 		

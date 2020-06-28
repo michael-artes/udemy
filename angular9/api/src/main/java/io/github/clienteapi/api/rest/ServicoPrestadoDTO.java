@@ -1,10 +1,18 @@
 package io.github.clienteapi.api.rest;
 
+import javax.validation.constraints.NotEmpty;
+
 public class ServicoPrestadoDTO {
 	
+	@NotEmpty(message = "{campo.descricao.obrigatorio}")
 	private String descricao;
-	private String preco;
+	
+	@NotEmpty(message = "{campo.preco.obrigatorio}")
+	private String valor;
+	
+	@NotEmpty(message = "{campo.data.obrigatorio}")
 	private String data;
+	
 	private Integer idCliente;
 	
 	public String getDescricao() {
@@ -13,11 +21,11 @@ public class ServicoPrestadoDTO {
 	public void setDescricao(String descricao) {
 		this.descricao = descricao;
 	}
-	public String getPreco() {
-		return preco;
+	public String getValor() {
+		return valor;
 	}
-	public void setPreco(String preco) {
-		this.preco = preco;
+	public void setValor(String valor) {
+		this.valor = valor;
 	}
 	public String getData() {
 		return data;

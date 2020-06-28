@@ -4,7 +4,6 @@ import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
-import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -16,7 +15,6 @@ import io.github.clienteapi.api.model.entity.Cliente;
 import io.github.clienteapi.api.model.repository.ClienteRepository;
 
 @RestController
-@CrossOrigin("http://localhost:4200")
 @RequestMapping("/api/clientes")
 public class ClienteController extends GenericController<Cliente, Cliente>{
 	

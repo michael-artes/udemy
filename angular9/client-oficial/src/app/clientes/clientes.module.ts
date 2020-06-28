@@ -1,11 +1,13 @@
-import { NgModule } from '@angular/core';
+import { ErrorsModule } from './../errors/errors.module';
 import { CommonModule } from '@angular/common';
-
+import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
-
-import { ClientesRoutingModule } from './clientes-routing.module';
+import { ErrorsComponent } from './../errors/errors.component';
 import { ClientesFormComponent } from './clientes-form/clientes-form.component';
 import { ClientesListaComponent } from './clientes-lista/clientes-lista.component';
+import { ClientesRoutingModule } from './clientes-routing.module';
+
+
 
 
 @NgModule({
@@ -13,7 +15,8 @@ import { ClientesListaComponent } from './clientes-lista/clientes-lista.componen
   imports: [
     CommonModule,
     ClientesRoutingModule,
-    FormsModule
+    FormsModule,
+    ErrorsModule
   ],
   exports: [ClientesFormComponent, ClientesListaComponent]
 })

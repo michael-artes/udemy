@@ -1,23 +1,23 @@
-import { Cliente } from './../cliente';
 import { Component, OnInit } from '@angular/core';
-import { ClientesService } from 'src/app/clientes.service';
 import { Router } from '@angular/router';
+import { ClientesService } from 'src/app/clientes.service';
+import { ComponetMaster } from 'src/app/validacoes-form/component-master';
+import { Cliente } from './../cliente';
 
 @Component({
   selector: 'app-clientes-form',
   templateUrl: './clientes-form.component.html',
   styleUrls: ['./clientes-form.component.css']
 })
-export class ClientesFormComponent implements OnInit {
+export class ClientesFormComponent extends ComponetMaster implements OnInit {
 
   cliente: Cliente;
-  sucesso = false;
-  errors: string[] = [];
 
   constructor(
       private clienteService: ClientesService,
       private route: Router,
   ) {
+    super();
     this.cliente = new Cliente();
   }
 
@@ -37,10 +37,9 @@ export class ClientesFormComponent implements OnInit {
     this.clienteService
       .atualizar(this.cliente)
       .subscribe(res => {
-        this.sucesso = true;
+        this.hideErros();
       }, e => {
-        this.sucesso = false;
-        this.errors = ['erro ao atualizar o cliente'];
+        this.showErros(['erro ao atualizar o cliente']);
       });
   }
 
@@ -48,11 +47,10 @@ export class ClientesFormComponent implements OnInit {
     this.clienteService
       .salvar(this.cliente)
       .subscribe(res => {
-        this.sucesso = true;
+        this.hideErros();
         this.cliente = res;
       }, e => {
-        this.sucesso = false;
-        this.errors = e.error.errors;
+        this.showErros(e.error.errors);
       });
   }
 
