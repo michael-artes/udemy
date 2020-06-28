@@ -10,6 +10,7 @@ import { HomeComponent } from './home/home.component';
 import { ServicoPrestadoService } from './servico-prestado.service';
 import { ServicoPrestadoModule } from './servico-prestado/servico-prestado.module';
 import { TemplateModule } from './template/template.module';
+import { LoginComponent } from './login/login.component';
 
 
 
@@ -22,6 +23,7 @@ import { TemplateModule } from './template/template.module';
   declarations: [
     AppComponent,
     HomeComponent,
+    LoginComponent,
   ],
   imports: [
     BrowserModule,
