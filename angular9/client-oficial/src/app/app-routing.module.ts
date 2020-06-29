@@ -6,13 +6,14 @@ import { RouterModule, Routes } from '@angular/router';
 import { CadastroUsuarioComponent } from './cadastro-usuario/cadastro-usuario.component';
 import { HomeComponent } from './home/home.component';
 import { LoginComponent } from './login/login.component';
+import { AuthGuard } from './auth.guard';
 
 
 const routes: Routes = [
   { path: 'login', component: LoginComponent },
   { path: 'cadastro-usuario', component: CadastroUsuarioComponent },
   {
-    path: '', component: LayoutComponent, children: [
+    path: '', component: LayoutComponent, canActivate: [AuthGuard], children: [
       { path: 'home', component: HomeComponent },
       {
         path: 'clientes',

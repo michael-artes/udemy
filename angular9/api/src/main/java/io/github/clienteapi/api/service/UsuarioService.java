@@ -16,6 +16,10 @@ public class UsuarioService implements UserDetailsService{
 	@Autowired
 	private UsuarioRepository usuarioRepository;
 	
+	public boolean existsByLogin(String login) {
+		return usuarioRepository.existsByLogin(login);
+	}
+	
 	@Override
 	public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
 		
@@ -31,5 +35,4 @@ public class UsuarioService implements UserDetailsService{
 					.build();
 		
 	}
-
 }

@@ -1,3 +1,5 @@
+import { Router } from '@angular/router';
+import { AuthService } from './../auth.service';
 import { User } from './user';
 import { Component, OnInit } from '@angular/core';
 
@@ -10,15 +12,23 @@ export class LoginComponent implements OnInit {
 
   user: User;
 
-  constructor() {
-    this.user = new User();
+  constructor(private router: Router, private authService: AuthService) {
+
   }
 
   ngOnInit(): void {
+    this.user = new User();
   }
 
   onSubmit() {
-    console.log(this.user);
+    this.authService
+      .realizarLogin(this.user.login, this.user.password)
+      .subscribe(
+        res => {
+          localStorage.setItem('access_token', JSON.stringify(res));
+          this.router.navigate(['/home']);
+        },
+        err => console.log(err));
   }
 
 }
