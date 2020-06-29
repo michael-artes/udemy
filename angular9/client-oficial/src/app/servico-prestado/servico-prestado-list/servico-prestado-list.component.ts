@@ -24,7 +24,7 @@ export class ServicoPrestadoListComponent implements OnInit {
   ngOnInit(): void {}
 
   novoServico() {
-    this.router.navigate(['/servico-prestado-form']);
+    this.router.navigate(['/servico-prestado/form']);
   }
 
   onSubmit() {

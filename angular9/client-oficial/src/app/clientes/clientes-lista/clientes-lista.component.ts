@@ -37,11 +37,11 @@ export class ClientesListaComponent implements OnInit {
   }
 
   novoCadastro() {
-    this.router.navigate(['/clientes-form']);
+    this.router.navigate(['/clientes/form']);
   }
 
   editarCliente(cliente: Cliente){
-    this.router.navigate([`/clientes-form/${cliente.id}`], {state: {data: cliente} });
+    this.router.navigate([`/clientes/form/${cliente.id}`], {state: {data: cliente} });
   }
 
   selecionarCliente(cliente: Cliente) {

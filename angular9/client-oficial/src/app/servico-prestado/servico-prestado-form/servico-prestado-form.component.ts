@@ -32,7 +32,7 @@ export class ServicoPrestadoFormComponent extends ComponetMaster implements OnIn
   }
 
   listServicos(){
-    this.router.navigate(['/servico-prestado-list']);
+    this.router.navigate(['/servico-prestado/list']);
   }
 
   onSubmit() {

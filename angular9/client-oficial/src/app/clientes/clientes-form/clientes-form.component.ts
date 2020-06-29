@@ -55,7 +55,7 @@ export class ClientesFormComponent extends ComponetMaster implements OnInit {
   }
 
   listagemClientes() {
-    this.route.navigate(['/clientes-list']);
+    this.route.navigate(['/clientes']);
   }
 
 }
